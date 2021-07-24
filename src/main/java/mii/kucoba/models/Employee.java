@@ -5,6 +5,7 @@
  */
 package mii.kucoba.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.swing.internal.plaf.basic.resources.basic;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
@@ -72,6 +73,7 @@ public class Employee {
         return "mii.kucoba.models.Employee[ id=" + id + " ]";
     }
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;

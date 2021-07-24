@@ -5,6 +5,7 @@
  */
 package mii.kucoba.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -75,6 +76,7 @@ public class Department implements Serializable {
         return "mii.kucoba.models.Department[ id=" + id + " ]";
     }
     
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "department")
     private List<Employee> employees;
     

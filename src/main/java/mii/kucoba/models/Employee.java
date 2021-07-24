@@ -6,13 +6,12 @@
 package mii.kucoba.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.swing.internal.plaf.basic.resources.basic;
+import java.util.List;
 import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -48,6 +47,13 @@ public class Employee {
     @Column(name = "address")
     private String address;
     
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -73,9 +79,9 @@ public class Employee {
         return "mii.kucoba.models.Employee[ id=" + id + " ]";
     }
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToOne
-    @JoinColumn(name = "department_id", nullable = false)
-    private Department department;
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    
+    
+
     
 }

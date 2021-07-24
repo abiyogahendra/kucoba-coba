@@ -42,15 +42,25 @@ import lombok.NoArgsConstructor;
 public class Department implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
+    
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
   
+    
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
+    
+   
     @Override
     public int hashCode() {
         int hash = 0;
@@ -76,8 +86,8 @@ public class Department implements Serializable {
         return "mii.kucoba.models.Department[ id=" + id + " ]";
     }
     
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "department")
-    private List<Employee> employees;
+    
+    
+    
     
 }

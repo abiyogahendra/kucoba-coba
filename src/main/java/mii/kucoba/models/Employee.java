@@ -71,6 +71,9 @@ public class Employee {
     public String toString() {
         return "mii.kucoba.models.Employee[ id=" + id + " ]";
     }
-    
+
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
     
 }

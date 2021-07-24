@@ -6,6 +6,7 @@
 package mii.kucoba.models;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,13 +15,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author abiyo
  */
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "department")
 @XmlRootElement
@@ -39,35 +49,7 @@ public class Department implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-
-    public Department() {
-    }
-
-    public Department(Integer id) {
-        this.id = id;
-    }
-
-    public Department(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+  
     @Override
     public int hashCode() {
         int hash = 0;
@@ -92,5 +74,8 @@ public class Department implements Serializable {
     public String toString() {
         return "mii.kucoba.models.Department[ id=" + id + " ]";
     }
+    
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
     
 }

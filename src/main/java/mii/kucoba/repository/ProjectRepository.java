@@ -19,10 +19,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Integer>{
     
-//    @Query("select * from project p where p.lokasi = :lokasi")
-//    List<Project> getProjectByLocation(@Param("lokasi") String lokasi);
-//    
-//    
-    
-    
+   @Query(value = "select * from project p where p.lokasi = :lokasi", nativeQuery = true)
+   public List<Project> getProjectByLocation(@Param("lokasi") String lokasi); 
+ 
 }

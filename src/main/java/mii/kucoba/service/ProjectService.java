@@ -27,10 +27,13 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
     
+    public List<Project> getAllDataProject(){
+        return projectRepository.findAll();
+    }
     
-//    public List<Project> getProjectByLocation(String location){
-//        return projectRepository.getProjectByLocation(location);
-//    }
+    public List<Project> getProjectByLocation(String location){
+        return projectRepository.getProjectByLocation(location);
+    }
     
     public Project createProjectData(Project project){
         if (project.getId() != null) {

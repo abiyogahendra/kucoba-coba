@@ -7,6 +7,7 @@ package mii.kucoba.service;
 
 import java.util.List;
 import mii.kucoba.models.Project;
+import mii.kucoba.models.request.EmployeProject;
 import mii.kucoba.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,9 +32,14 @@ public class ProjectService {
         return projectRepository.findAll();
     }
     
-    public List<Project> getProjectByLocation(String location){
-        return projectRepository.getProjectByLocation(location);
+    public List<Project> getProjectByLocation(String location, String name){
+    return projectRepository.getProjectByLocation(location, name);
     }
+    
+    public List<EmployeProject> getAllProjectEmployee(){
+        return projectRepository.getProjectEmployee();
+    }
+    
     
     public Project createProjectData(Project project){
         if (project.getId() != null) {
@@ -42,6 +48,7 @@ public class ProjectService {
         }
         return projectRepository.save(project);
     }
+    
     
     
 }

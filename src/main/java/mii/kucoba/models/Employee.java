@@ -52,7 +52,14 @@ public class Employee {
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
     
-    
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany
+    @JoinTable(
+            name = "employee_project",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
+    private List<Project> projects;
     
     @Override
     public int hashCode() {

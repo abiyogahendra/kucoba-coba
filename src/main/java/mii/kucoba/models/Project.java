@@ -5,6 +5,8 @@
  */
 package mii.kucoba.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,6 +39,11 @@ public class Project {
     
     @Column(name = "name")
     private String name;
+    
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany(mappedBy = "projects")
+    private List<Employee> employees;
+    
     
     
 }

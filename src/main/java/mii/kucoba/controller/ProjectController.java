@@ -7,6 +7,7 @@ package mii.kucoba.controller;
 
 import java.util.List;
 import mii.kucoba.models.Project;
+import mii.kucoba.models.request.EmployeProject;
 import mii.kucoba.repository.ProjectRepository;
 import mii.kucoba.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,14 @@ public class ProjectController {
         return new ResponseEntity(projectService.getAllDataProject(), HttpStatus.OK);
     }
     
-    @GetMapping("/{lokasi}")
-    public ResponseEntity<List<Project>> getProjectByLocation(@PathVariable("lokasi") String lokasi){
-        return new ResponseEntity(projectService.getProjectByLocation(lokasi), HttpStatus.OK);
+    @GetMapping("/{lokasi}-{name}")
+    public ResponseEntity<List<Project>> getProjectByLocation(@PathVariable("lokasi") String lokasi, @PathVariable("name") String name){
+        return new ResponseEntity(projectService.getProjectByLocation(lokasi,name), HttpStatus.OK);
     }
+    
+    @GetMapping("/join-employee")
+    public ResponseEntity<List<EmployeProject>> getAllDataJoinEmployee(){
+        return new ResponseEntity(projectService.getAllProjectEmployee(), HttpStatus.OK);
+    }
+    
 }

@@ -49,6 +49,22 @@ public class ProjectService {
         return projectRepository.save(project);
     }
     
+    public Project getById(Integer id) {
+      return projectRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                               HttpStatus.NOT_FOUND, "Employee not found"));
+    }
     
+   public Project updateProjectById(Integer id, Project project){
+       getById(id);
+       project.setId(id);
+       return projectRepository.save(project);
+   }
+   
+   public Project DeleteByProjectId(Integer Id){
+       Project project = getById(Id);
+       projectRepository.deleteById(Id);
+       return project;
+   }
     
 }

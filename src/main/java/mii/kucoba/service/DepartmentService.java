@@ -46,4 +46,19 @@ public class DepartmentService {
         return departmentRepository.save(data);       
         
     }
+    
+    public Department update(Integer id, Department department) {
+        getDepartmentById(id);
+        
+        department.setId(id);
+        
+        return departmentRepository.save(department);
+    }
+    
+     public Department delete(Integer id) {
+        Department department = getDepartmentById(id);
+        departmentRepository.deleteById(id);
+        return department;
+    }
+
 }

@@ -30,6 +30,7 @@ public interface ProjectRepository extends JpaRepository<Project, Integer>{
            + "e.`department_id` idDepartment,p.`lokasi` projectLocation,p.`name` "
            + "projectName FROM employee_project ep JOIN `employee` e ON (ep.employee_id = e.`id`) "
            + "JOIN project p ON (ep.project_id = p.`id`)", nativeQuery = true)
+   
    public List<EmployeProject> getProjectEmployee(); 
    
    

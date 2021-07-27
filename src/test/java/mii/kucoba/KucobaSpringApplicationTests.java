@@ -56,7 +56,7 @@ class KucobaSpringApplicationTests {
                 .name("project1")
                 .build();
        
-        
+        projectService.createProjectData(p);
 
     }
     

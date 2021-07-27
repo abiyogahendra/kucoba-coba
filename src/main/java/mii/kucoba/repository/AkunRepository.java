@@ -5,7 +5,7 @@
  */
 package mii.kucoba.repository;
 
-import mii.kucoba.models.Department;
+import mii.kucoba.models.Akun;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author abiyo
  */
 @Repository
-public interface DepartmentRepository extends JpaRepository<Department, Integer>{
-    
-    Department findByEmployees_id(Integer id);
-    
+public interface AkunRepository extends JpaRepository<Akun, Integer>{
+
 }

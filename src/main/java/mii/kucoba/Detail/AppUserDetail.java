@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import mii.kucoba.models.Privilege;
 import mii.kucoba.models.Role;
 import mii.kucoba.models.User;
@@ -26,6 +27,7 @@ import org.springframework.stereotype.Component;
  */
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class AppUserDetail implements UserDetails{
 
     private User user;

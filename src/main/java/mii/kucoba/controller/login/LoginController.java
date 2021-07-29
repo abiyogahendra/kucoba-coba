@@ -3,6 +3,7 @@ package mii.kucoba.controller.login;
 import mii.kucoba.Detail.AppUserDetail;
 import mii.kucoba.config.ResponseMassage;
 import mii.kucoba.models.Employee;
+import mii.kucoba.models.request.Authorization;
 import mii.kucoba.models.request.Login;
 import mii.kucoba.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class LoginController {
     }
     
     @PostMapping
-    public ResponseEntity<Login> Login(@RequestBody Login data){
-        return new ResponseEntity(new ResponseMassage<Login>
+    public ResponseEntity<Authorization> Login(@RequestBody Login data){
+        return new ResponseEntity(new ResponseMassage<Authorization>
             (loginService.prosesLogin(data), "Success"), HttpStatus.OK);
     }
     

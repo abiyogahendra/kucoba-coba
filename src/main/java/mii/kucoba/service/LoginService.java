@@ -5,6 +5,8 @@
  */
 package mii.kucoba.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import mii.kucoba.Detail.AppUserDetail;
 import mii.kucoba.Detail.AppUserDetailService;
 import mii.kucoba.models.User;
@@ -32,9 +34,10 @@ public class LoginService {
     private PasswordEncoder passwordEncoder; 
 
     @Autowired
-    public LoginService(AppUserDetailService appUserDetailService, UserRepository userRepository) {
+    public LoginService(AppUserDetailService appUserDetailService, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.appUserDetailService = appUserDetailService;
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
     
     
@@ -50,10 +53,17 @@ public class LoginService {
         if(user == null){
             throw new UsernameNotFoundException("Username tidak di temukan");
         }
-        
-        boolean pass = pas
-        
-        
-       
+        boolean pass = passwordEncoder.matches(l.getPassword(), user.getPassword());
+        if(pass == true){
+            String dat = appUserDetailService.loadUserByUsername(l.getUsername()).getAuthorities().toString();
+            List<String> data = new ArrayList<>();
+                data.add(user.getUsername());
+                data.add(user.getPassword());
+                data.add(dat);
+                authorization.setAuth(data);
+            return authorization;
+        }else{
+            throw new UsernameNotFoundException("password tidak di temukan");
+        }
     }
 }

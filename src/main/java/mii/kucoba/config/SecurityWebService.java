@@ -38,6 +38,7 @@ public class SecurityWebService extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        System.out.println(passwordEncoder.encode("admin"));
         auth.userDetailsService(detailService).passwordEncoder(passwordEncoder);
     }
 
@@ -48,6 +49,7 @@ public class SecurityWebService extends WebSecurityConfigurerAdapter{
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/emp","/department","/role","/privilege","/user").hasRole("ADMIN")
+                .antMatchers("/login").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

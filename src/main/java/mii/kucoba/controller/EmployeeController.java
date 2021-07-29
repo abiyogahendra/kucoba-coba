@@ -8,7 +8,7 @@ package mii.kucoba.controller;
 import java.util.List;
 import mii.kucoba.config.ResponseMassage;
 import mii.kucoba.models.Employee;
-import mii.kucoba.service.EmployeeService;
+import mii.kucoba.service.access.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

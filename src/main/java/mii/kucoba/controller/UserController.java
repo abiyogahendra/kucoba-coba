@@ -9,7 +9,9 @@ import mii.kucoba.Detail.AppUserDetailService;
 import mii.kucoba.config.ResponseMassage;
 import mii.kucoba.models.Role;
 import mii.kucoba.models.User;
+import mii.kucoba.models.request.Registration;
 import mii.kucoba.repository.UserRepository;
+import mii.kucoba.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,18 +33,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
     
-    @Autowired
-    private AppUserDetailService appUserDetailService;
+    private RegistrationService registrationService;
 
     @Autowired
-    public UserController(UserRepository userRepository) {
-        this.appUserDetailService = appUserDetailService;
+    public UserController(RegistrationService registrationService) {
+        this.registrationService = registrationService;
     }
     
+    
+    
     @PostMapping
-    public ResponseEntity<String> createDataUser(@RequestBody User r, Authentication auth){
+    public ResponseEntity<Registration> createDataUser(@RequestBody Registration r, Authentication auth){
         System.out.println(auth.getAuthorities().toString());
-        return new ResponseEntity(appUserDetailService.createAkunEmployee(r), HttpStatus.OK);
+        return new ResponseEntity(registrationService.CreateRegistration(r), HttpStatus.OK);
     }
     
     

@@ -1,13 +1,11 @@
 package mii.kucoba;
 
-import lombok.Builder;
 import mii.kucoba.models.Department;
 import mii.kucoba.models.Employee;
 import mii.kucoba.models.Project;
-import mii.kucoba.repository.EmployeeRepository;
-import mii.kucoba.service.DepartmentService;
-import mii.kucoba.service.EmployeeService;
-import mii.kucoba.service.ProjectService;
+import mii.kucoba.service.access.DepartmentService;
+import mii.kucoba.service.access.EmployeeService;
+import mii.kucoba.service.access.ProjectService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

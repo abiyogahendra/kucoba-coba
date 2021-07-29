@@ -11,7 +11,7 @@ import mii.kucoba.models.Department;
 import mii.kucoba.models.Project;
 import mii.kucoba.models.request.EmployeProject;
 import mii.kucoba.repository.ProjectRepository;
-import mii.kucoba.service.ProjectService;
+import mii.kucoba.service.access.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

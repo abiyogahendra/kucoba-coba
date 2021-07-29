@@ -37,25 +37,25 @@ public class AppUserDetailService implements UserDetailsService{
         }
         return new AppUserDetail(user); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public User getIdUserEmployeeById(Integer id){
-        return userRepository.findById(id)
-            .orElseThrow( () 
-                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Data Role Tidak Ditemukan")
-            );
-    }
-    
-    public String createAkunEmployee(User p){
-        p.setPassword(passwordEncoder.encode(p.getPassword()));
-//        userRepository.save(p);
-        userRepository.createAkun(7, "user", "user");
-        return "Register success";
-    }
-    
-    public User update(Integer id, User p) {
-        getIdUserEmployeeById(id);
-        p.setId(id);
-        return userRepository.save(p);
-    }
+//    
+//    public User getIdUserEmployeeById(Integer id){
+//        return userRepository.findById(id)
+//            .orElseThrow( () 
+//                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Data Role Tidak Ditemukan")
+//            );
+//    }
+//    
+//    public String createAkunEmployee(User p){
+//        p.setPassword(passwordEncoder.encode(p.getPassword()));
+////        userRepository.save(p);
+//        userRepository.createAkun(7, "user", "user");
+//        return "Register success";
+//    }
+//    
+//    public User update(Integer id, User p) {
+//        getIdUserEmployeeById(id);
+//        p.setId(id);
+//        return userRepository.save(p);
+//    }
     
 }

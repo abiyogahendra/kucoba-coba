@@ -64,6 +64,10 @@ public class Department implements Serializable {
     public String toString() {
         return "mii.kucoba.models.Department[ id=" + id + " ]";
     }
+
+    public Department(Integer id) {
+        this.id = id;
+    }
     
     
     

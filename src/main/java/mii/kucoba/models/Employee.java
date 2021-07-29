@@ -91,6 +91,10 @@ public class Employee {
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private User user;
+
+    public Employee(Department department) {
+        this.department = department;
+    }
     
     
     

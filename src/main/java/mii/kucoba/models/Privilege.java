@@ -5,9 +5,15 @@
  */
 package mii.kucoba.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,25 +26,21 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "akun")
-public class Akun {
+@NoArgsConstructor
+@Builder
+@Table(name = "privilege")
+public class Privilege {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
     
-    @Column(name = "username")
+    @Column(name = "name", nullable = false)
     private String name;
     
-    @Column(name = "password")
-    private String password;
-    
-    @Column(name = "role")
-    private String role;
-    
-    
-    
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany(mappedBy = "privileges")
+    private List<Role> roles; 
 }

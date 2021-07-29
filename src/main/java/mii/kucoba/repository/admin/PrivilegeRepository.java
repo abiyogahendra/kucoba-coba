@@ -3,17 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mii.kucoba.repository;
+package mii.kucoba.repository.admin;
 
-import mii.kucoba.models.Akun;
+import mii.kucoba.models.Privilege;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author abiyo
  */
-@Repository
-public interface AkunRepository extends JpaRepository<Akun, Integer>{
-
+public interface PrivilegeRepository extends JpaRepository<Privilege, Integer>{
+    
 }

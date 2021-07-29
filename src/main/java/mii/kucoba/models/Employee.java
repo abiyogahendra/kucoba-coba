@@ -86,7 +86,15 @@ public class Employee {
         return "mii.kucoba.models.Employee[ id=" + id + " ]";
     }
 
+
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private User user;
+    
+    
+    
+    
     
     
 
